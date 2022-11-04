@@ -1,0 +1,98 @@
+package logic;
+
+import java.util.Date;
+
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+public class User {
+	@Size(min=3,max=10,message="아이디는 3자이상 10자 이하로 입력하세요")
+	private String userid;
+	@Size(min=3,max=10,message="비밀번호는 3자이상 10자 이하로 입력하세요")
+	private String password;
+	@NotEmpty(message="사용자이름은 필수입니다.")
+	private String name;
+	private String phoneno;
+	private String postcode;
+	private String address;	
+	@NotEmpty(message="이메일은 필수입니다.")
+	@Email(message="email 형식으로 입력하세요")
+	private String email;
+	@Past(message="생일은 과거 날짜만 가능합니다.")
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	private Date birthday;
+	private String nickname;
+	private int gender;
+	
+	public int getGender() {
+		return gender;
+	}
+	public void setGender(int gender) {
+		this.gender = gender;
+	}
+	public String getNickname() {
+		return nickname;
+	}
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+	// getter, setter, toString
+	public String getUserid() {
+		return userid;
+	}
+	public void setUserid(String userid) {
+		this.userid = userid;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getPhoneno() {
+		return phoneno;
+	}
+	public void setPhoneno(String phoneno) {
+		this.phoneno = phoneno;
+	}
+	public String getPostcode() {
+		return postcode;
+	}
+	public void setPostcode(String postcode) {
+		this.postcode = postcode;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public Date getBirthday() {
+		return birthday;
+	}
+	public void setBirthday(Date birthday) {
+		this.birthday = birthday;
+	}
+	@Override
+	public String toString() {
+		return "User [userid=" + userid + ", password=" + password + ", name=" + name + ", phoneno=" + phoneno
+				+ ", postcode=" + postcode + ", address=" + address + ", email=" + email + ", birthday=" + birthday
+				+ "nickname="+nickname+"gender="+gender+"]";
+	}
+}
